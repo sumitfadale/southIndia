@@ -5,7 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <link data-require="sweet-alert@*" data-semver="0.4.2" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" />
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
@@ -21,7 +25,7 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   }
 </style>
 <body class="w3-light-grey w3-content" style="max-width:1600px">
-
+  <form id="from1">
 <!-- Sidebar/menu -->
 <nav class="w3-sidebar w3-bar-block w3-white w3-animate-left w3-text-grey w3-collapse w3-top w3-center" style="z-index:3;width:300px;font-weight:bold" id="mySidebar"><br>
    <img src=".\download.jpg" style="width:100%">
@@ -261,8 +265,8 @@ Organic Green Tea Leaves</b></p>
   <!-- Contact section -->
   <div class="w3-container w3-light-grey w3-padding-32 w3-padding-large" id="contact">
     <div class="w3-content" style="max-width:600px">
-      <h4 class="w3-center"><b>Contact Me</b></h4>
-      <p>Do you want me to photograph you? Fill out the form and fill me in with the details :) I love meeting new people!</p>
+      <h4 class="w3-center"><b>Send Feedback</b></h4>
+    
       <form action="/action_page.php" target="_blank">
         <div class="w3-section">
           <label>Name</label>
@@ -287,7 +291,7 @@ Organic Green Tea Leaves</b></p>
 <!-- End page content -->
 
 </div>
-
+</form>
 <script>
 // Script to open and close sidebar
 function w3_open() {
@@ -346,8 +350,7 @@ function SendMessage() {
   {
     if (isValid1==true)
     {
-      var myWindow = window.open("", "myWindow");
-        myWindow.document.write("<p>REQUEST RECEIVED!!!</p>");
+      return true;
     }
 
  
@@ -357,6 +360,19 @@ function SendMessage() {
 
 }
 </script>
-
+<script>
+    document.querySelector('#from1').addEventListener('submit', function(e) {
+      var form = this;
+      
+      e.preventDefault();
+      
+     swal({
+  title: "Feedback Sent!!!",
+  text: "Thank you for sharing your valuable feedback.",
+  icon: "success",
+  button: "OK",
+});
+    });
+  </script>
 </body>
 </html>
