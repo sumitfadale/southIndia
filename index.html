@@ -266,15 +266,15 @@ Organic Green Tea Leaves</b></p>
       <form action="/action_page.php" target="_blank">
         <div class="w3-section">
           <label>Name</label>
-          <input class="w3-input w3-border" type="text" name="Name" required>
+          <input class="w3-input w3-border" type="text" name="Name" id="name" required>
         </div>
         <div class="w3-section">
           <label>Email</label>
-          <input  class="w3-input w3-border" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="Email" required>
+          <input  class="w3-input w3-border" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="Email" id="email" required>
         </div>
         <div class="w3-section">
           <label>Message</label>
-          <input class="w3-input w3-border" type="text" name="Message" required>
+          <input class="w3-input w3-border" type="text" name="Message" id="message" required>
         </div>
         <button type="submit" class="w3-button w3-block w3-black w3-margin-bottom" onclick="SendMessage()">Send Message</button>
       </form>
@@ -337,10 +337,26 @@ for (var i = 0; i < btns.length; i++) {
 </script>
 <script>
 function SendMessage() {
-  var myWindow = window.open("", "myWindow");
-  myWindow.document.write("<p>REQUEST RECEIVED!!!</p>");
+  var name=document.getElementById('name').value
+  var email = document.getElementById('email').value
+  var message = document.getElementById('message').value
+  var isValid1 =/ ^[a-zA-Z0-9.!#$%&'
+        *+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/.test(email);
+  if(name != "" && email!= "" && message != "")
+  {
+    if (isValid1==true)
+    {
+      var myWindow = window.open("", "myWindow");
+        myWindow.document.write("<p>REQUEST RECEIVED!!!</p>");
+    }
+
  
+  }
+  else
+      return false;
+
 }
 </script>
+
 </body>
 </html>
